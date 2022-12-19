@@ -1,0 +1,7 @@
+{
+  "name": "openApi",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
