@@ -1,20 +1,24 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Openi app
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <form #data="ngForm" (ngSubmit)="Submit(data)">
+    <ion-input (ionChange)="Ionchange($event)" name="donnee" ngModel autofocus placeholder="Poser moi une question.."></ion-input>
+    <div class="ion-text-center">
+      <ion-button type="submit" fill="clear">Envoyer</ion-button>
+    </div>
+  </form>
+  <ion-spinner name="crescent" color="ligth" *ngIf="loading=== true"></ion-spinner>
+  <p style="border-bottom: 1px solid #000;"></p>
+  <div class="rep" *ngIf="resultat">
+    <p>Reponse :</p>
+    <div id="resultat" class="text">
+      {{resultat}}
+    </div>
   </div>
 </ion-content>
