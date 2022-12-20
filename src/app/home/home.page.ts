@@ -11,7 +11,7 @@ import { Configuration, OpenAIApi } from "openai";
 })
 export class HomePage {
 
-  apikeys  = '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'
+  apikeys  = 'sk-OW*******PXy'
   endpoint = 'https://api.openai.com/v1/completions';
   resultat:any;
   loading : boolean = false;
