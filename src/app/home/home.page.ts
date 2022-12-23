@@ -11,11 +11,12 @@ import { Configuration, OpenAIApi } from "openai";
 })
 export class HomePage {
 
-  apikeys  = 'sk-OW*******PXy'
+  apikeys  = 'sk-89vFhQ****fELO'
   endpoint = 'https://api.openai.com/v1/completions';
   resultat:any;
   loading : boolean = false;
   verifie = '';
+  div = document.getElementById('resultat');
   constructor(private http: HttpClient, private alertController: AlertController) {}
 
   header = new HttpHeaders({
@@ -36,8 +37,11 @@ export class HomePage {
         if (response) {
           this.loading = false;
           let text = response;
+
           this.verifie = ''
-          this.resultat = text.choices[0].text
+          this.resultat = this.translateToHtml(text.choices[0].text)
+          console.log(this.resultat);
+
           datas.reset();
         }
       });

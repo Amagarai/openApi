@@ -17,8 +17,24 @@
   <p style="border-bottom: 1px solid #000;"></p>
   <div class="rep" *ngIf="resultat">
     <p>Reponse :</p>
-    <div id="resultat" class="text">
-      {{resultat}}
-    </div>
+    <div id="resultat" class="text" [innerHTML]="resultat"></div>
   </div>
+  <!-- <pre>
+    <code>
+      showAlert(message: string)
+        const alertPopup = this.alertCtrl.create(
+          message: message;
+          buttons: [
+
+              text: 'Ok',
+              handler: () =>
+                // Ici vous pouvez choisir l'action à effectuer
+
+
+          ]
+        );
+        alertPopup.present();
+
+    </code>
+  </pre> -->
 </ion-content>

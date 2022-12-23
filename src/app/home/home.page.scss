@@ -16,3 +16,11 @@ ion-button{
   margin-bottom: 10px;
   border: solid;
 }
+pre{
+  background-color: rgb(66, 66, 66);
+}
+pre code {
+  font-family: monospace;
+  color: rgb(255, 234, 0);
+  // background-color: #eee;
+}
