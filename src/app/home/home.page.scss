@@ -16,11 +16,32 @@ ion-button{
   margin-bottom: 10px;
   border: solid;
 }
-pre{
-  background-color: rgb(66, 66, 66);
-}
-pre code {
-  font-family: monospace;
-  color: rgb(255, 234, 0);
-  // background-color: #eee;
+.text-area{
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid #00122b;
+  background-color: aqua;
+  position: absolute;
+  bottom: 0%;
+  form{
+    display: flex;
+    gap: 0;
+  }
+  textarea{
+    // margin-left: 10px;
+    border: none;
+    padding: 6px 6px 16px 10px;
+    &::hover{
+      border: none;
+    }
+  }
+  ion-button{
+    margin-top: -1px;
+    background-color: #00122b;
+    color: #fff;
+    width: 80px;
+    height: 50px;
+    border-radius: 0%;
+
+  }
 }

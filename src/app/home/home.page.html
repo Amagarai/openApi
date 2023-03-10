@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Openi app
+      Chat GPT message
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -19,22 +19,13 @@
     <p>Reponse :</p>
     <div id="resultat" class="text" [innerHTML]="resultat"></div>
   </div>
-  <!-- <pre>
-    <code>
-      showAlert(message: string)
-        const alertPopup = this.alertCtrl.create(
-          message: message;
-          buttons: [
 
-              text: 'Ok',
-              handler: () =>
-                // Ici vous pouvez choisir l'action à effectuer
-
-
-          ]
-        );
-        alertPopup.present();
-
-    </code>
-  </pre> -->
+  <div class="text-area">
+    <form action="">
+      <textarea name="" id="" cols="30" rows="2" placeholder="Poser moi une question"></textarea>
+      <ion-button fill="clear">
+        <ion-icon name="send"></ion-icon>
+      </ion-button>
+    </form>
+  </div>
 </ion-content>
