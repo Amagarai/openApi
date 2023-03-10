@@ -11,12 +11,13 @@ import hljs from 'highlight.js';
 })
 export class HomePage {
 
-  apikeys  = 'sk-89vFh------K7fELO'
+  apikeys  = 'sk-89vFhQc7sOmt5orpXrptT3----##eXd7lsLK7fELO'
   endpoint = 'https://api.openai.com/v1/completions';
   resultat:any;
   loading : boolean = false;
   verifie = '';
   div = document.getElementById('resultat');
+  list : any[] = []
   constructor(private http: HttpClient, private alertController: AlertController) {}
 
   header = new HttpHeaders({
@@ -33,11 +34,21 @@ export class HomePage {
         model: 'text-davinci-003',
         max_tokens: 2000,
       };
+
+      let conversation = {
+        moi: true,
+        text : datas.value.donnee
+      }
+      this.list.push(conversation)
       this.http.post(this.endpoint, data, {headers: this.header}).subscribe((response: any) => {
         if (response) {
+          let conversation2 = {
+            moi: true,
+            text : datas.value.donnee
+          }
+          this.list.push(conversation2);
           this.loading = false;
           let text = response;
-
           this.verifie = ''
           this.resultat = this.translateToHtml(text.choices[0].text)
           console.log(text.choices[0].text);
