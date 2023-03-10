@@ -11,6 +11,15 @@
         ]
       }
     ],
-    "meta-viewport": "off"
+    "meta-viewport": "off",
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "min-width: fit-content",
+          "min-width: min-content"
+        ]
+      }
+    ]
   }
 }

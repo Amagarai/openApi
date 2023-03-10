@@ -1,39 +1,53 @@
-ion-input{
-  box-shadow: 0 3px 3px rgb(117, 117, 117);
-  border-bottom: 3px solid rgb(13, 95, 196);
+ion-content{
+  --ion-background-color: #4c4e51;
 }
 
-ion-button{
-  background-color : rgb(13, 95, 196);
+
+.convertation{
   color: #fff;
-  border-radius: 12px;
-  margin-top: 9px;
+  height: calc(100% - 60px);
+  overflow-y: scroll;
+  .moi{
+    padding: 2px;
+    background-color: #1e1f20;
+    text-align: center;
+    margin: 4px 12px;
+    position: relative;
+    ion-icon{
+      font-size: 25px;
+      margin-right: 4px;
+      position: absolute;
+      left: 1%;
+      top: 30%;
+    }
+  }
+  .response{
+    margin: 4px 12px;
+    // background-color: #272728;
+    padding: 4px;
+
+  }
 }
-.text{
-  font-family: "Times New Roman", Times, serif;
-  padding: 5px;
-  color: rgb(13, 95, 196);
-  margin-bottom: 10px;
-  border: solid;
-}
+
 .text-area{
   width: 100%;
   height: 50px;
-  border-top: 1px solid #00122b;
-  background-color: aqua;
-  position: absolute;
+  border-top: 1px solid #ffffff;
+  background-color: #4c4e51;
+  position: fixed;
+  z-index: 11111;
   bottom: 0%;
   form{
     display: flex;
     gap: 0;
   }
-  textarea{
+  ion-input{
     // margin-left: 10px;
     border: none;
     padding: 6px 6px 16px 10px;
-    &::hover{
-      border: none;
-    }
+    color: #fff;
+    --placeholder-color: #fff;
+    --placeholder-opacity: .8;
   }
   ion-button{
     margin-top: -1px;
@@ -43,5 +57,36 @@ ion-button{
     height: 50px;
     border-radius: 0%;
 
+  }
+}
+
+.dots {
+  position: absolute;
+  bottom: 7%;
+  width: 24px;
+  height: 11.5px;
+  background: radial-gradient(circle closest-side,#ffffff 90%,#0000) 0%   50%,
+         radial-gradient(circle closest-side,#ffffff 90%,#0000) 50%  50%,
+         radial-gradient(circle closest-side,#ffffff 90%,#0000) 100% 50%;
+  background-size: calc(100%/3) 5.8px;
+  background-repeat: no-repeat;
+  animation: dots-7ar3yq 1.4s infinite linear;
+}
+
+@keyframes dots-7ar3yq {
+  20% {
+     background-position: 0%   0%, 50%  50%,100%  50%;
+  }
+
+  40% {
+     background-position: 0% 100%, 50%   0%,100%  50%;
+  }
+
+  60% {
+     background-position: 0%  50%, 50% 100%,100%   0%;
+  }
+
+  80% {
+     background-position: 0%  50%, 50%  50%,100% 100%;
   }
 }

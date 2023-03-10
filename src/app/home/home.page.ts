@@ -11,7 +11,7 @@ import hljs from 'highlight.js';
 })
 export class HomePage {
 
-  apikeys  = 'sk-89vFhQc7sOmt5orpXrptT3----##eXd7lsLK7fELO'
+  apikeys  = 'sk-hwCwbJbheHr58uRScIbdT-----##qIQ'
   endpoint = 'https://api.openai.com/v1/completions';
   resultat:any;
   loading : boolean = false;
@@ -40,19 +40,19 @@ export class HomePage {
         text : datas.value.donnee
       }
       this.list.push(conversation)
+      this.scrollToBottom()
       this.http.post(this.endpoint, data, {headers: this.header}).subscribe((response: any) => {
         if (response) {
-          let conversation2 = {
-            moi: true,
-            text : datas.value.donnee
-          }
-          this.list.push(conversation2);
           this.loading = false;
           let text = response;
           this.verifie = ''
           this.resultat = this.translateToHtml(text.choices[0].text)
-          console.log(text.choices[0].text);
-
+          let conversation2 = {
+            moi: false,
+            text : this.resultat
+          }
+          this.list.push(conversation2);
+          this.scrollToBottom()
           datas.reset();
         }
       });
@@ -65,26 +65,10 @@ export class HomePage {
 
   translateToHtml = (text: string) => text.split("\n").map((str) =>`<p>${str}</p>`).join("");
 
-  // verifyCode = (text: string) => text.split('```')
-
-  highlightCode(text: any) {
-    const codeRegex = /<code>(.*?)<\/code>/gs;
-    const hasCode = codeRegex.test(text);
-
-    if (hasCode) {
-      const matches = text.matchAll(codeRegex);
-      let result = '';
-
-      for (const match of matches) {
-        const code = match[1];
-        const language = 'javascript'; // Remplacez par la langue de votre choix
-        const highlightedCode = hljs.highlight(language, code).value;
-        result += `<pre><code class="hljs">${highlightedCode}</code></pre>`;
-      }
-
-      return result;
-    } else {
-      return text;
+   scrollToBottom() {
+    let scrollableDiv = document.getElementById("scrollable");
+    if (scrollableDiv) {
+      scrollableDiv.scrollTop = scrollableDiv.scrollHeight;
     }
   }
 

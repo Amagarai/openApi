@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <form #data="ngForm" (ngSubmit)="Submit(data)">
+  <!-- <form #data="ngForm" (ngSubmit)="Submit(data)">
     <ion-input (ionChange)="Ionchange($event)" name="donnee" ngModel autofocus placeholder="Poser moi une question.."></ion-input>
     <div class="ion-text-center">
       <ion-button type="submit" fill="clear">Envoyer</ion-button>
@@ -18,12 +18,23 @@
   <div class="rep" *ngIf="resultat">
     <p>Reponse :</p>
     <div id="resultat" class="text" [innerHTML]="resultat"></div>
+  </div> -->
+
+  <div class="convertation" id="scrollable">
+    <div *ngFor="let item of list">
+      <div class="moi" *ngIf="item.moi">
+        <ion-icon slot="start" name="person-circle"></ion-icon>
+        <p>{{item.text}}</p>
+      </div>
+      <div class="response" *ngIf="!item.moi" [innerHTML]="item.text"></div>
+    </div>
   </div>
 
+  <div class="dots" *ngIf="loading=== true"></div>
   <div class="text-area">
-    <form action="">
-      <textarea name="" id="" cols="30" rows="2" placeholder="Poser moi une question"></textarea>
-      <ion-button fill="clear">
+    <form #data="ngForm" (ngSubmit)="Submit(data)">
+      <ion-input (ionChange)="Ionchange($event)" name="donnee" ngModel autofocus placeholder="Poser moi une question"></ion-input>
+      <ion-button type="submit" fill="clear">
         <ion-icon name="send"></ion-icon>
       </ion-button>
     </form>
