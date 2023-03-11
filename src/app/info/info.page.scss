@@ -1,0 +1,35 @@
+
+.img{
+  margin-top: 40px;
+  img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+}
+.apropos{
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 4px;
+  padding-right: 4px;
+  border: solid var(--ion-color-dark);
+  font-size: 12px;
+  border-radius: 12px;
+  min-height: 300px;
+  b{
+    color: #1F70BC;
+    span{
+      color: red;
+    }
+  }
+}
+.icon{
+  ion-icon{
+    margin-left: 4px;
+    height: 25px;
+    font-size: 25px;
+    color: #1F70BC;
+  }
+}

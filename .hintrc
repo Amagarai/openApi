@@ -20,6 +20,7 @@
           "min-width: min-content"
         ]
       }
-    ]
+    ],
+    "no-inline-styles": "off"
   }
 }

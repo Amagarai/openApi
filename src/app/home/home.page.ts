@@ -11,7 +11,7 @@ import hljs from 'highlight.js';
 })
 export class HomePage {
 
-  apikeys  = 'sk-hwCwbJbheHr58uRScIbdT-----##qIQ'
+  apikeys  = 'sk-hwCwbJbheHr58uRScIbd---qIQ'
   endpoint = 'https://api.openai.com/v1/completions';
   resultat:any;
   loading : boolean = false;

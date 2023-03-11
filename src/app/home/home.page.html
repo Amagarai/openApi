@@ -3,23 +3,15 @@
     <ion-title>
       Chat GPT message
     </ion-title>
+    <ion-buttons slot="end" color="light">
+      <ion-button defaultHref="accueil" color="secondary" routerLink="/info">
+        <ion-icon name="information"></ion-icon>
+      </ion-button>&nbsp;
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <!-- <form #data="ngForm" (ngSubmit)="Submit(data)">
-    <ion-input (ionChange)="Ionchange($event)" name="donnee" ngModel autofocus placeholder="Poser moi une question.."></ion-input>
-    <div class="ion-text-center">
-      <ion-button type="submit" fill="clear">Envoyer</ion-button>
-    </div>
-  </form>
-  <ion-spinner name="crescent" color="ligth" *ngIf="loading=== true"></ion-spinner>
-  <p style="border-bottom: 1px solid #000;"></p>
-  <div class="rep" *ngIf="resultat">
-    <p>Reponse :</p>
-    <div id="resultat" class="text" [innerHTML]="resultat"></div>
-  </div> -->
-
   <div class="convertation" id="scrollable">
     <div *ngFor="let item of list">
       <div class="moi" *ngIf="item.moi">
