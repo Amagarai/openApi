@@ -11,7 +11,7 @@ import hljs from 'highlight.js';
 })
 export class HomePage {
 
-  apikeys  = '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'
+  apikeys  = 'sk-Tq-----IJtT'
   endpoint = 'https://api.openai.com/v1/completions';
   resultat:any;
   loading : boolean = false;
@@ -70,6 +70,10 @@ export class HomePage {
     if (scrollableDiv) {
       scrollableDiv.scrollTop = scrollableDiv.scrollHeight;
     }
+  }
+
+  viderConversation(){
+    this.list = []
   }
 
   async presentAlert(header : string, message : string) {

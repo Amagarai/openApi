@@ -5,7 +5,7 @@
     </ion-title>
     <ion-buttons slot="end" color="light">
       <ion-button defaultHref="accueil" color="secondary" routerLink="/info">
-        <ion-icon name="information"></ion-icon>
+        <ion-icon name="information-circle"></ion-icon>
       </ion-button>&nbsp;
     </ion-buttons>
   </ion-toolbar>
@@ -21,7 +21,6 @@
       <div class="response" *ngIf="!item.moi" [innerHTML]="item.text"></div>
     </div>
   </div>
-
   <div class="dots" *ngIf="loading=== true"></div>
   <div class="text-area">
     <form #data="ngForm" (ngSubmit)="Submit(data)">
@@ -31,4 +30,17 @@
       </ion-button>
     </form>
   </div>
+    <ion-fab slot="fixed" vertical="top" horizontal="end" *ngIf="list.length > 0">
+      <ion-fab-button>
+        <ion-icon name="chevron-down-circle"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="bottom">
+        <ion-fab-button color="danger" (click)="viderConversation()">
+          <ion-icon name="trash"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button routerLink="/info">
+          <ion-icon name="information-circle"></ion-icon>
+        </ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
 </ion-content>
