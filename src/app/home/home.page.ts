@@ -11,7 +11,7 @@ import hljs from 'highlight.js';
 })
 export class HomePage {
 
-  apikeys  = 'sk-Tq-----IJtT'
+  apikeys  = 'sk-***gOvaXe'
   endpoint = 'https://api.openai.com/v1/completions';
   resultat:any;
   loading : boolean = false;
@@ -43,6 +43,8 @@ export class HomePage {
       this.scrollToBottom()
       this.http.post(this.endpoint, data, {headers: this.header}).subscribe((response: any) => {
         if (response) {
+          console.log(response);
+
           this.loading = false;
           let text = response;
           this.verifie = ''
@@ -63,7 +65,23 @@ export class HomePage {
     this.verifie = event.target.value
   }
 
-  translateToHtml = (text: string) => text.split("\n").map((str) =>`<p>${str}</p>`).join("");
+  // translateToHtml = (text: string) => text.split("\n").map((str) =>`<p>${str}</p>`).join("");
+  translateToHtml = (text: string) => {
+  const codeRegex = /```([\s\S]*?)```/gm; // Regex pour détecter le code
+  let htmlText = text;
+  let match;
+
+  while ((match = codeRegex.exec(text)) !== null) {
+    // Pour chaque correspondance, appliquer le format de code
+    const code = match[1];
+    const highlightedCode = hljs.highlightAuto(code).value;
+    const codeHtml = `<pre><code>${highlightedCode}</code></pre>`;
+    htmlText = htmlText.replace(match[0], codeHtml);
+  }
+
+  // Convertir le reste du texte en HTML
+  return htmlText.split("\n").map((str) => `<p>${str}</p>`).join("");
+}
 
    scrollToBottom() {
     let scrollableDiv = document.getElementById("scrollable");
